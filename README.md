@@ -8,7 +8,7 @@ Simulação microscópica de tráfego realista da **Av. Presidente Tancredo Neve
 
 * **No Windows:**
   * Baixe o instalador oficial `.msi` em [eclipse.dev/sumo](https://eclipse.dev/sumo/).
-  * Caminho padrão de instalação: `C:\Program Files (x86)\Eclipse\Sumo\bin`
+  * Caminho padrão de instalação: `C:\\Program Files (x86)\\Eclipse\\Sumo\\bin`
   * Certifique-se de que a variável de ambiente `SUMO_HOME` esteja configurada.
 * **No Linux (Ubuntu/Debian):**
   ```bash
@@ -30,46 +30,38 @@ smart-traffic-agents/
 │       ├── mapa.net.xml               ← Rede viária compilada pelo netconvert
 │       ├── bairros.add.xml            ← Polígonos visuais dos bairros (POI/Shapes)
 │       ├── bairros.taz.xml            ← Zonas de Tráfego (TAZ) geradas a partir dos polígonos
-│       └── semaforos_adaptativos.add.xml ← Semáforos atuados inteligentes (Onda Verde SMTT)
+│       ├── semaforos_adaptativos.add.xml ← Semáforos atuados inteligentes (Onda Verde SMTT)
+│       └── pontos_onibus.add.xml      ← Pontos de parada do transporte coletivo
 ├── scripts/
-│   ├── gerar_fluxos.py                ← Gera os arquivos .rou.xml com físicas calibradas e clima
-│   ├── executar_todos.py              ← Roda 10 rodadas (Monte Carlo) em lote via CLI
-│   └── comparar_cenarios.py           ← Extrai a média dos KPIs científicos das 10 rodadas
+│   ├── gerar_fluxos.py                ← Gera os trips e os roteadores (rotear.sh/.bat/.ps1)
+│   └── gerar_pedestres.py             ← Gera as rotas de pedestres por faixa do corredor
 └── simulacoes/
     ├── configs/                       ← Starters das simulações (.sumocfg)
     │   ├── viewsettings.xml           ← Configuração visual única compartilhada
-│   ├── normal_radar_novo.sumocfg
-│   ├── pico.sumocfg
-│   ├── pico_radar_novo.sumocfg
-│   ├── pico_chuva.sumocfg
-│   ├── pico_chuva_radar_novo.sumocfg
-│   ├── superpico.sumocfg
-│   └── superpico_radar_novo.sumocfg
+    │   ├── normal_radar_novo.sumocfg
+    │   ├── pico.sumocfg
+    │   ├── pico_radar_novo.sumocfg
+    │   ├── pico_chuva.sumocfg
+    │   ├── pico_chuva_radar_novo.sumocfg
+    │   ├── superpico.sumocfg
+    │   └── superpico_radar_novo.sumocfg
     ├── rotas/                         ← Arquivos de rotas e fluxos gerados
     │   ├── normal.rou.xml
     │   ├── pico.rou.xml
     │   ├── pico_chuva.rou.xml
     │   ├── superpico.rou.xml
-    │   └── superpico_chuva.rou.xml
+    │   ├── pedestres_normal.rou.xml
+    │   ├── pedestres_pico.rou.xml
+    │   ├── pedestres_pico_chuva.rou.xml
+    │   └── pedestres_superpico.rou.xml
     └── outputs/                       ← Resultados cuspidos por cenário
-        ├── normal/                    ← rodada_01.xml ... rodada_10.xml
         ├── normal_radar_novo/
         ├── pico/
         ├── pico_radar_novo/
         ├── pico_chuva/
         ├── pico_chuva_radar_novo/
         ├── superpico/
-        ├── superpico_radar_novo/
-        ├── superpico_chuva/
-        ├── superpico_chuva_radar_novo/
-        ├── superpico_chuva_teste/
-        ├── superpico_radar_novo/
-        ├── pico_chuva_teste/
-        ├── pico_novo/
-        ├── pico_teste/
-        ├── normal_teste/
-        ├── pico_radar_novo_teste/
-        └── superpico_radar_novo_teste/
+        └── superpico_radar_novo/
 ```
 
 ---
@@ -116,7 +108,7 @@ Lê o arquivo bruto do OpenStreetMap e gera a rede viária tratada:
 
 2. **Desenhar os Polígonos dos Bairros:**
    * Pressione a tecla **`P`** para ativar o modo **Shapes / POI / Polígonos**.
-   * Desenhe o contorno de cada bairro ao longo da Tancredo Neves (`po_1`, `po_2`, ..., `po_10`).
+   * Desenhe o contorno de cada bairro ao longo da Tancredo Neves (`po_0`, `po_1`, ..., `po_9`).
    * No menu superior, clique em: **File → Shapes and POIs → Save Shapes as...** e salve como `mapa/backup/bairros.add.xml`.
 
 3. **Converter os Polígonos para Zonas de Tráfego (TAZ):**
@@ -131,76 +123,52 @@ Lê o arquivo bruto do OpenStreetMap e gera a rede viária tratada:
 
 ---
 
-### Passo 3: Gerar os Arquivos de Rotas e Físicas Veiculares
+### Passo 3: Gerar os Arquivos de Rotas, Fluxos e Pedestres
 
-Gera os arquivos `.rou.xml` na pasta `simulacoes/rotas/` com todas as físicas (chuva, troca de faixas, apressados e tipos de veículos):
+Gera os arquivos de trips e os roteadores na pasta `simulacoes/rotas/`, e também as rotas de pedestres:
 
-* **No Windows (PowerShell):**
-  ```powershell
+* **Todos:**
+  ```
   python scripts/gerar_fluxos.py
+  python scripts/gerar_pedestres.py
   ```
 
-* **No Linux (Bash):**
+
+Depois disso, rode o roteador do seu SO para converter os `.trips.xml` em `.rou.xml` roteados:
+
+* **Linux / Git-Bash / WSL:**
   ```bash
-  python3 scripts/gerar_fluxos.py
+  bash simulacoes/rotas/rotear.sh
   ```
+* **Windows (cmd):**
+  ```cmd
+  simulacoes\rotas\rotear.bat
+  ```
+* **Windows (PowerShell):**
+  ```powershell
+  .\simulacoes\rotas\rotear.ps1
+  ```
+
+Isso requer `duarouter` no PATH (vem na pasta `bin/` da instalação do SUMO).
 
 ---
 
-### Passo 4: Executar as Simulações
+### Passo 4: Cenários Implementados
 
-#### Opção A: Visualizar no SUMO-GUI
-Abra qualquer cenário da pasta `simulacoes/configs/` diretamente no SUMO-GUI:
+No momento, os cenários executáveis são:
 
-* **No Windows (PowerShell):**
-  ```powershell
-  # Exemplo 1: Pico Convencional
-  sumo-gui simulacoes/configs/pico.sumocfg
+* **Entrepico com semáforo inteligente:** `normal_radar_novo.sumocfg`
+* **Pico convencional:** `pico.sumocfg`
+* **Pico com semáforo inteligente:** `pico_radar_novo.sumocfg`
+* **Pico com chuva convencional:** `pico_chuva.sumocfg`
+* **Pico com chuva e semáforo inteligente:** `pico_chuva_radar_novo.sumocfg`
+* **Super pico convencional:** `superpico.sumocfg`
+* **Super pico com semáforo inteligente:** `superpico_radar_novo.sumocfg`
 
-  # Exemplo 2: Pico com Semáforo Inteligente (Radar Novo)
-  sumo-gui simulacoes/configs/pico_radar_novo.sumocfg
-
-  # Exemplo 3: Pico com Chuva
-  sumo-gui simulacoes/configs/pico_chuva.sumocfg
-  ```
-
-* **No Linux (Bash):**
-  ```bash
-  # Exemplo 1: Pico Convencional
-  sumo-gui simulacoes/configs/pico.sumocfg
-
-  # Exemplo 2: Pico com Semáforo Inteligente (Radar Novo)
-  sumo-gui simulacoes/configs/pico_radar_novo.sumocfg
-
-  # Exemplo 3: Pico com Chuva
-  sumo-gui simulacoes/configs/pico_chuva.sumocfg
-  ```
-
-#### Opção B: Executar 10 Rodadas em Lote (Modo Headless / Monte Carlo)
-Roda 10 repetições de cada cenário gerando `rodada_01.xml` a `rodada_10.xml` dentro de `simulacoes/outputs/<cenario>/`:
-
-* **No Windows (PowerShell):**
-  ```powershell
-  python scripts/executar_todos.py 10
-  ```
-
-* **No Linux (Bash):**
-  ```bash
-  python3 scripts/executar_todos.py 10
-  ```
+Os cenários com `..._radar_novo` usam `semaforos_adaptativos.add.xml` nos `additional-files`. Os demais usam apenas `bairros.taz.xml`, `bairros.add.xml` e `pontos_onibus.add.xml`.
 
 ---
 
-### Passo 5: Gerar a Tabela Científica Consolidada
+## 🔗 4. Referências do Corredor
 
-Calcula a média de todas as rodadas executadas para cada cenário:
-
-* **No Windows (PowerShell):**
-  ```powershell
-  python scripts/comparar_cenarios.py
-  ```
-
-* **No Linux (Bash):**
-  ```bash
-  python3 scripts/comparar_cenarios.py
-  ```
+Os parâmetros de calibração estão detalhados em `mapa/INFO.md`.
