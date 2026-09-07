@@ -38,7 +38,6 @@ BASES = {
     "pico": "pico",
     "pico_chuva": "pico_chuva",
     "superpico": "superpico",
-    "superpico_chuva": "superpico_chuva",
 }
 
 TAXAS_BASE = {
@@ -80,7 +79,13 @@ def dist_pt_seg(px, py, a, b):
 
 def descobrir_faixas(net_path, margem_corredor=MARGEM_CORREDOR):
     """
-    Retorna a lista de faixas utilizáveis do corredor: (junction, [edgeA, edgeB]).
+    Retorna a lista de faixas utilizáveis do corredor: (junction, [(edgeA, partidaA), (edgeB, partidaB)]).
+
+    edgeA/edgeB = calçada que toca diretamente o cruzamento (usada como "to",
+    ponto onde o pedestre atravessa e some).
+    partidaA/partidaB = calçada um trecho antes (usada como "from", ponto de
+    nascimento do pedestre — dá espaço/tempo pra fila se formar antes do sinal
+    abrir). Cai de volta na própria edgeA/edgeB quando não existe continuação.
 
     Uma faixa é considerada utilizável quando o cruzamento tem faixa de pedestre
     E calçadas (edges de caminhada) conectadas dos dois lados.
@@ -139,8 +144,33 @@ def descobrir_faixas(net_path, margem_corredor=MARGEM_CORREDOR):
                 continue
         ws = walk_inc.get(j, [])
         if len(ws) >= 2:
-            faixas.append((j, [w[0] for w in ws]))
+            (a, far_a), (b, far_b) = ws[0], ws[1]
+            # Estende o ponto de partida um trecho de calçada antes da que já
+            # toca no cruzamento, se existir. Sem isso, o pedestre nasce em
+            # cima do sinal (a calçada que toca a crossing costuma ser um
+            # stub curto) e não sobra espaço/tempo visual para "acumular"
+            # gente esperando o sinal abrir — só aparece, espera pouco e
+            # atravessa. Com a extensão, ele nasce um pouco mais longe, anda
+            # até a faixa e, se o sinal estiver fechado, várias pessoas vão
+            # se juntando ali visivelmente antes de atravessar.
+            partida_a = _estender_para_fila(far_a, a, walk_inc) or a
+            partida_b = _estender_para_fila(far_b, b, walk_inc) or b
+            faixas.append((j, [(a, partida_a), (b, partida_b)]))
     return faixas
+
+
+def _estender_para_fila(node, edge_atual, walk_inc):
+    """
+    A partir de 'node' (extremidade da calçada que toca o cruzamento, do lado
+    de fora), procura outra calçada conectada além de 'edge_atual' para
+    estender o ponto de nascimento do pedestre um trecho pra trás. Retorna o
+    id da edge estendida, ou None se 'node' for uma ponta sem continuação
+    (nesse caso o chamador usa a própria edge_atual, comportamento antigo).
+    """
+    for eid, _far in walk_inc.get(node, []):
+        if eid != edge_atual:
+            return eid
+    return None
 
 
 # ==============================================================================
@@ -177,10 +207,14 @@ def gerar_arquivo_pedestres(base, faixas, pph_por_faixa, destino):
 
     n = 0
     for j, ws in faixas:
-        a, b = ws[0], ws[1]
+        (a, partida_a), (b, partida_b) = ws[0], ws[1]
         por_direcao = max(1, round(pph_por_faixa / 2.0))
         lambda_por_seg = por_direcao / 3600.0  # taxa média de chegada (pedestres/segundo)
-        for direcao, (de, para) in enumerate(((a, b), (b, a))):
+        # from = edge estendida (nasce mais longe, anda até a crossing e fica
+        #        na fila se o sinal estiver fechado)
+        # to   = edge que já toca a crossing do lado de chegada (atravessa e
+        #        some ali, sem andar mais depois — comportamento mantido)
+        for direcao, (de, para) in enumerate(((partida_a, b), (partida_b, a))):
             n += 1
             linhas.append(
                 f'    <personFlow id="ped_{j}_{direcao}" type="ped" begin="{b0:.0f}" end="{e0:.0f}" '

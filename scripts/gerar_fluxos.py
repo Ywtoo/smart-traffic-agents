@@ -14,21 +14,18 @@ Regras de Demanda:
 
   Toda viagem é SEMPRE entre dois TAZ diferentes (o == d nunca gera viagem).
 
-Depois de gerar o .trips.xml, rode (ou use o helper `rotear.sh` gerado):
-
-    duarouter --net-file mapa/backup/mapa.net.xml \\
-              --route-files <arquivo>.trips.xml \\
-              --taz-files mapa/backup/bairros.taz.xml \\
-              --with-taz \\
-              --repair \\
-              --ignore-errors \\
-              --randomize-flows \\
-              -o <arquivo>.rou.xml
+Depois de gerar o .trips.xml, o próprio script chama o duarouter diretamente
+(via subprocess) para produzir o .rou.xml final, sem precisar de scripts
+externos (.sh/.bat/.ps1). Requer 'duarouter' no PATH (pasta bin/ da instalação
+do SUMO). Ao final de cada cenário com sucesso, os arquivos intermediários
+(.trips.xml e .alt.xml) são apagados automaticamente — só o .rou.xml fica.
 ================================================================================
 """
 
 import os
 import random
+import shutil
+import subprocess
 
 try:
     import sumolib
@@ -340,72 +337,74 @@ def salvar_arquivo_trips(caminho_arquivo, multiplicador_volume=1.0, clima_chuva=
           f"{total_trips} trips (fromTaz/toTaz) gerados em {os.path.basename(caminho_arquivo)}")
 
 
-def _comando_duarouter(pasta_rotas, nome_trip):
-    """Monta o comando duarouter (mesma lógica pros 3 formatos de script)."""
+def _rel(caminho, base_dir):
+    """Caminho relativo a base_dir, com barras normais."""
+    return os.path.relpath(caminho, base_dir).replace(os.sep, "/")
+
+
+def rodar_duarouter(pasta_rotas, nome_trip, manter_intermediarios=False):
+    """
+    Chama o duarouter diretamente via subprocess (sem gerar .sh/.bat/.ps1).
+    Precisa do executável 'duarouter' no PATH (pasta bin/ da instalação do SUMO).
+
+    Em caso de sucesso, apaga os arquivos intermediários (o .trips.xml de
+    entrada e qualquer .alt.xml de rotas alternativas que o duarouter gere
+    junto), deixando só o .rou.xml final na pasta. Passe
+    manter_intermediarios=True para preservá-los (ex: debug).
+
+    Retorna True em sucesso, False em falha (loga o motivo e segue adiante
+    sem interromper os outros cenários).
+    """
+    if shutil.which("duarouter") is None:
+        print("[ERRO] 'duarouter' não encontrado no PATH. "
+              "Adicione a pasta bin/ da instalação do SUMO ao PATH do sistema "
+              "(ex: C:\\Program Files (x86)\\Eclipse\\Sumo\\bin no Windows).")
+        return False
+
     base = nome_trip.replace(".trips.xml", "")
-    return (
-        f'duarouter --net-file "{CAMINHO_NET}" '
-        f'--route-files "{os.path.join(pasta_rotas, nome_trip)}" '
-        f'--taz-files "{CAMINHO_TAZ}" '
-        f'--with-taz --repair --ignore-errors --randomize-flows '
-        f'-o "{os.path.join(pasta_rotas, base + ".rou.xml")}"'
-    )
+    caminho_trip = os.path.join(pasta_rotas, nome_trip)
+    caminho_rou = os.path.join(pasta_rotas, base + ".rou.xml")
+    net_rel = _rel(CAMINHO_NET, pasta_rotas)
+    taz_rel = _rel(CAMINHO_TAZ, pasta_rotas)
 
+    comando = [
+        "duarouter",
+        "--net-file", net_rel,
+        "--route-files", nome_trip,
+        "--taz-files", taz_rel,
+        "--with-taz", "--repair", "--ignore-errors", "--randomize-flows",
+        "-o", base + ".rou.xml",
+    ]
 
-def gerar_script_roteamento(pasta_rotas, nomes_arquivos):
-    """
-    Gera os scripts de roteamento em 3 formatos, pra rodar em qualquer SO:
-      - rotear.sh   -> Linux/Mac/Git-Bash/WSL
-      - rotear.bat  -> Windows (cmd.exe)
-      - rotear.ps1  -> Windows (PowerShell)
-    Todos fazem a mesma coisa: chamar duarouter --with-taz para cada cenário.
-    """
-    # --- .sh (bash) ---
-    caminho_sh = os.path.join(pasta_rotas, "rotear.sh")
-    linhas_sh = ["#!/usr/bin/env bash", "set -e", ""]
-    for nome in nomes_arquivos:
-        linhas_sh.append(_comando_duarouter(pasta_rotas, nome))
-    with open(caminho_sh, "w", encoding="utf-8", newline="\n") as f:
-        f.write("\n".join(linhas_sh) + "\n")
-    try:
-        os.chmod(caminho_sh, 0o755)
-    except OSError:
-        pass  # chmod pode falhar/ser irrelevante no Windows, sem problema
+    resultado = subprocess.run(comando, cwd=pasta_rotas, capture_output=True, text=True)
 
-    # --- .bat (cmd.exe do Windows) ---
-    caminho_bat = os.path.join(pasta_rotas, "rotear.bat")
-    linhas_bat = ["@echo off", "setlocal", ""]
-    for nome in nomes_arquivos:
-        cmd = _comando_duarouter(pasta_rotas, nome)
-        linhas_bat.append(cmd)
-        linhas_bat.append("if errorlevel 1 goto :erro")
-        linhas_bat.append("")
-    linhas_bat.append("echo.")
-    linhas_bat.append("echo [OK] Todas as rotas foram geradas.")
-    linhas_bat.append("goto :fim")
-    linhas_bat.append(":erro")
-    linhas_bat.append("echo [ERRO] duarouter falhou. Verifique se ele esta no PATH (pasta bin do SUMO).")
-    linhas_bat.append("exit /b 1")
-    linhas_bat.append(":fim")
-    with open(caminho_bat, "w", encoding="utf-8", newline="\r\n") as f:
-        f.write("\n".join(linhas_bat) + "\n")
+    if resultado.returncode != 0:
+        print(f" [ERRO] duarouter falhou para {nome_trip}:")
+        print(resultado.stderr.strip() or resultado.stdout.strip())
+        return False
 
-    # --- .ps1 (PowerShell do Windows) ---
-    caminho_ps1 = os.path.join(pasta_rotas, "rotear.ps1")
-    linhas_ps1 = ["$ErrorActionPreference = 'Stop'", ""]
-    for nome in nomes_arquivos:
-        linhas_ps1.append(_comando_duarouter(pasta_rotas, nome))
-    linhas_ps1.append("")
-    linhas_ps1.append("Write-Host '[OK] Todas as rotas foram geradas.'")
-    with open(caminho_ps1, "w", encoding="utf-8", newline="\n") as f:
-        f.write("\n".join(linhas_ps1) + "\n")
+    if not os.path.isfile(caminho_rou):
+        print(f" [ERRO] duarouter terminou sem erro, mas {base}.rou.xml não foi criado.")
+        return False
 
-    print(f"\n[✓] Scripts de roteamento gerados em: {pasta_rotas}")
-    print(f"    - Linux/Mac/Git-Bash/WSL : rotear.sh")
-    print(f"    - Windows (cmd)          : rotear.bat")
-    print(f"    - Windows (PowerShell)   : rotear.ps1")
-    print("    Rode o do seu SO depois deste script, para converter .trips.xml em .rou.xml roteados.")
-    print("    Requer 'duarouter' no PATH (vem na pasta bin/ da instalação do SUMO).")
+    print(f" -> Roteado: {nome_trip} -> {base}.rou.xml")
+
+    if not manter_intermediarios:
+        # remove o .trips.xml de entrada
+        try:
+            os.remove(caminho_trip)
+        except OSError:
+            pass
+        # remove qualquer .alt.xml (rotas alternativas) que o duarouter gere
+        # para este cenário, ex: normal.rou.alt.xml
+        for nome in os.listdir(pasta_rotas):
+            if nome.startswith(base) and nome.endswith(".alt.xml"):
+                try:
+                    os.remove(os.path.join(pasta_rotas, nome))
+                except OSError:
+                    pass
+
+    return True
 
 
 # ==============================================================================
@@ -429,6 +428,19 @@ if __name__ == "__main__":
         caminho_saida = os.path.join(PASTA_ROTAS, nome_arq)
         salvar_arquivo_trips(caminho_saida, multiplicador_volume=fator, clima_chuva=chovendo)
 
-    gerar_script_roteamento(PASTA_ROTAS, [n for n, _, _ in CENARIOS])
+    print("\n=======================================================")
+    print("ROTEANDO COM DUAROUTER (fromTaz/toTaz -> caminho real)")
+    print("=======================================================\n")
 
-    print("\n[✓] Trips gerados. Rode simulacoes/rotas/rotear.sh para produzir os .rou.xml finais.\n")
+    ok, falhas = 0, []
+    for nome_arq, _, _ in CENARIOS:
+        if rodar_duarouter(PASTA_ROTAS, nome_arq):
+            ok += 1
+        else:
+            falhas.append(nome_arq)
+
+    print(f"\n[✓] {ok}/{len(CENARIOS)} cenários roteados com sucesso.")
+    if falhas:
+        print(f"[AVISO] Falharam: {', '.join(falhas)} — .trips.xml mantido para esses (não apagado).")
+    else:
+        print("[✓] .trips.xml e .alt.xml intermediários removidos. Só os .rou.xml finais permanecem.\n")

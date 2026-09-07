@@ -2,107 +2,108 @@
 <routes>
     <!-- Pedestres atravessando as faixas do corredor (gerado por gerar_pedestres.py) -->
     <!-- Demanda: 120 pedestres/h por faixa (total dois sentidos), janela 25200-28800s -->
+    <!-- Chegada: processo de Poisson (period=exp(lambda)), nao intervalo fixo -->
     <vType id="ped" vClass="pedestrian" maxSpeed="1.39" speedFactor="normc(1.0,0.15,0.7,1.3)" color="0.9,0.7,0.2" guiShape="pedestrian"/>
-    <personFlow id="ped_10033931172_0" type="ped" begin="25200" end="28800" period="60.0">
+    <personFlow id="ped_10033931172_0" type="ped" begin="25200" end="28800" period="exp(0.016667)">
         <walk from="1095646495#0" to="1095646495#1"/>
     </personFlow>
-    <personFlow id="ped_10033931172_1" type="ped" begin="25200" end="28800" period="60.0">
+    <personFlow id="ped_10033931172_1" type="ped" begin="25200" end="28800" period="exp(0.016667)">
         <walk from="1095646495#1" to="1095646495#0"/>
     </personFlow>
-    <personFlow id="ped_1596290892_0" type="ped" begin="25200" end="28800" period="60.0">
-        <walk from="358646993#1" to="358646993#2"/>
+    <personFlow id="ped_1596290892_0" type="ped" begin="25200" end="28800" period="exp(0.016667)">
+        <walk from="358646993#0" to="358646993#2"/>
     </personFlow>
-    <personFlow id="ped_1596290892_1" type="ped" begin="25200" end="28800" period="60.0">
-        <walk from="358646993#2" to="358646993#1"/>
+    <personFlow id="ped_1596290892_1" type="ped" begin="25200" end="28800" period="exp(0.016667)">
+        <walk from="358646993#3" to="358646993#1"/>
     </personFlow>
-    <personFlow id="ped_2958855177_0" type="ped" begin="25200" end="28800" period="60.0">
-        <walk from="292331046#0" to="292331046#1"/>
+    <personFlow id="ped_2958855177_0" type="ped" begin="25200" end="28800" period="exp(0.016667)">
+        <walk from="605422718" to="292331046#1"/>
     </personFlow>
-    <personFlow id="ped_2958855177_1" type="ped" begin="25200" end="28800" period="60.0">
-        <walk from="292331046#1" to="292331046#0"/>
+    <personFlow id="ped_2958855177_1" type="ped" begin="25200" end="28800" period="exp(0.016667)">
+        <walk from="309828927#1" to="292331046#0"/>
     </personFlow>
-    <personFlow id="ped_3151677322_0" type="ped" begin="25200" end="28800" period="60.0">
-        <walk from="619014609#0" to="980162397#1"/>
+    <personFlow id="ped_3151677322_0" type="ped" begin="25200" end="28800" period="exp(0.016667)">
+        <walk from="619014609#1" to="980162397#1"/>
     </personFlow>
-    <personFlow id="ped_3151677322_1" type="ped" begin="25200" end="28800" period="60.0">
-        <walk from="980162397#1" to="619014609#0"/>
+    <personFlow id="ped_3151677322_1" type="ped" begin="25200" end="28800" period="exp(0.016667)">
+        <walk from="980162397#0" to="619014609#0"/>
     </personFlow>
-    <personFlow id="ped_3151677327_0" type="ped" begin="25200" end="28800" period="60.0">
-        <walk from="980162397#0" to="980162397#1"/>
+    <personFlow id="ped_3151677327_0" type="ped" begin="25200" end="28800" period="exp(0.016667)">
+        <walk from="309828927#6" to="980162397#1"/>
     </personFlow>
-    <personFlow id="ped_3151677327_1" type="ped" begin="25200" end="28800" period="60.0">
-        <walk from="980162397#1" to="980162397#0"/>
+    <personFlow id="ped_3151677327_1" type="ped" begin="25200" end="28800" period="exp(0.016667)">
+        <walk from="619014609#0" to="980162397#0"/>
     </personFlow>
-    <personFlow id="ped_3151677329_0" type="ped" begin="25200" end="28800" period="60.0">
-        <walk from="309828927#5" to="309828927#6"/>
+    <personFlow id="ped_3151677329_0" type="ped" begin="25200" end="28800" period="exp(0.016667)">
+        <walk from="309828927#4" to="309828927#6"/>
     </personFlow>
-    <personFlow id="ped_3151677329_1" type="ped" begin="25200" end="28800" period="60.0">
-        <walk from="309828927#6" to="309828927#5"/>
+    <personFlow id="ped_3151677329_1" type="ped" begin="25200" end="28800" period="exp(0.016667)">
+        <walk from="364444887#3" to="309828927#5"/>
     </personFlow>
-    <personFlow id="ped_3151677333_0" type="ped" begin="25200" end="28800" period="60.0">
-        <walk from="309828927#3" to="309828927#4"/>
+    <personFlow id="ped_3151677333_0" type="ped" begin="25200" end="28800" period="exp(0.016667)">
+        <walk from="309828927#2" to="309828927#4"/>
     </personFlow>
-    <personFlow id="ped_3151677333_1" type="ped" begin="25200" end="28800" period="60.0">
-        <walk from="309828927#4" to="309828927#3"/>
+    <personFlow id="ped_3151677333_1" type="ped" begin="25200" end="28800" period="exp(0.016667)">
+        <walk from="309828927#5" to="309828927#3"/>
     </personFlow>
-    <personFlow id="ped_3635475662_0" type="ped" begin="25200" end="28800" period="60.0">
-        <walk from="358646993#2" to="358646993#3"/>
+    <personFlow id="ped_3635475662_0" type="ped" begin="25200" end="28800" period="exp(0.016667)">
+        <walk from="358646993#1" to="358646993#3"/>
     </personFlow>
-    <personFlow id="ped_3635475662_1" type="ped" begin="25200" end="28800" period="60.0">
+    <personFlow id="ped_3635475662_1" type="ped" begin="25200" end="28800" period="exp(0.016667)">
         <walk from="358646993#3" to="358646993#2"/>
     </personFlow>
-    <personFlow id="ped_3684913712_0" type="ped" begin="25200" end="28800" period="60.0">
-        <walk from="309828927#1" to="309828927#2"/>
+    <personFlow id="ped_3684913712_0" type="ped" begin="25200" end="28800" period="exp(0.016667)">
+        <walk from="292331046#1" to="309828927#2"/>
     </personFlow>
-    <personFlow id="ped_3684913712_1" type="ped" begin="25200" end="28800" period="60.0">
-        <walk from="309828927#2" to="309828927#1"/>
+    <personFlow id="ped_3684913712_1" type="ped" begin="25200" end="28800" period="exp(0.016667)">
+        <walk from="309828927#3" to="309828927#1"/>
     </personFlow>
-    <personFlow id="ped_3684913714_0" type="ped" begin="25200" end="28800" period="60.0">
-        <walk from="364444898#0" to="364444898#1"/>
+    <personFlow id="ped_3684913714_0" type="ped" begin="25200" end="28800" period="exp(0.016667)">
+        <walk from="309828927#4" to="364444898#1"/>
     </personFlow>
-    <personFlow id="ped_3684913714_1" type="ped" begin="25200" end="28800" period="60.0">
-        <walk from="364444898#1" to="364444898#0"/>
+    <personFlow id="ped_3684913714_1" type="ped" begin="25200" end="28800" period="exp(0.016667)">
+        <walk from="309828927#2" to="364444898#0"/>
     </personFlow>
-    <personFlow id="ped_6022633957_0" type="ped" begin="25200" end="28800" period="60.0">
+    <personFlow id="ped_6022633957_0" type="ped" begin="25200" end="28800" period="exp(0.016667)">
         <walk from="358646993#0" to="358646993#1"/>
     </personFlow>
-    <personFlow id="ped_6022633957_1" type="ped" begin="25200" end="28800" period="60.0">
-        <walk from="358646993#1" to="358646993#0"/>
+    <personFlow id="ped_6022633957_1" type="ped" begin="25200" end="28800" period="exp(0.016667)">
+        <walk from="358646993#2" to="358646993#0"/>
     </personFlow>
-    <personFlow id="ped_940880599_0" type="ped" begin="25200" end="28800" period="60.0">
-        <walk from="292330191#1" to="292330191#2"/>
+    <personFlow id="ped_940880599_0" type="ped" begin="25200" end="28800" period="exp(0.016667)">
+        <walk from="292330191#0" to="292330191#2"/>
     </personFlow>
-    <personFlow id="ped_940880599_1" type="ped" begin="25200" end="28800" period="60.0">
-        <walk from="292330191#2" to="292330191#1"/>
+    <personFlow id="ped_940880599_1" type="ped" begin="25200" end="28800" period="exp(0.016667)">
+        <walk from="605422718" to="292330191#1"/>
     </personFlow>
-    <personFlow id="ped_9705057622_0" type="ped" begin="25200" end="28800" period="60.0">
+    <personFlow id="ped_9705057622_0" type="ped" begin="25200" end="28800" period="exp(0.016667)">
         <walk from="1056194867#0" to="1056194867#1"/>
     </personFlow>
-    <personFlow id="ped_9705057622_1" type="ped" begin="25200" end="28800" period="60.0">
-        <walk from="1056194867#1" to="1056194867#0"/>
+    <personFlow id="ped_9705057622_1" type="ped" begin="25200" end="28800" period="exp(0.016667)">
+        <walk from="1056194867#2" to="1056194867#0"/>
     </personFlow>
-    <personFlow id="ped_9705057630_0" type="ped" begin="25200" end="28800" period="60.0">
+    <personFlow id="ped_9705057630_0" type="ped" begin="25200" end="28800" period="exp(0.016667)">
         <walk from="1056194871#0" to="1056194871#1"/>
     </personFlow>
-    <personFlow id="ped_9705057630_1" type="ped" begin="25200" end="28800" period="60.0">
+    <personFlow id="ped_9705057630_1" type="ped" begin="25200" end="28800" period="exp(0.016667)">
         <walk from="1056194871#1" to="1056194871#0"/>
     </personFlow>
-    <personFlow id="ped_9705057634_0" type="ped" begin="25200" end="28800" period="60.0">
+    <personFlow id="ped_9705057634_0" type="ped" begin="25200" end="28800" period="exp(0.016667)">
         <walk from="1056194872#0" to="1056194872#1"/>
     </personFlow>
-    <personFlow id="ped_9705057634_1" type="ped" begin="25200" end="28800" period="60.0">
+    <personFlow id="ped_9705057634_1" type="ped" begin="25200" end="28800" period="exp(0.016667)">
         <walk from="1056194872#1" to="1056194872#0"/>
     </personFlow>
-    <personFlow id="ped_cluster_3257481123_962701490_0" type="ped" begin="25200" end="28800" period="60.0">
-        <walk from="619014609#1" to="619014609#2"/>
+    <personFlow id="ped_cluster_3257481123_962701490_0" type="ped" begin="25200" end="28800" period="exp(0.016667)">
+        <walk from="619014609#0" to="619014609#2"/>
     </personFlow>
-    <personFlow id="ped_cluster_3257481123_962701490_1" type="ped" begin="25200" end="28800" period="60.0">
+    <personFlow id="ped_cluster_3257481123_962701490_1" type="ped" begin="25200" end="28800" period="exp(0.016667)">
         <walk from="619014609#2" to="619014609#1"/>
     </personFlow>
-    <personFlow id="ped_cluster_3684913700_3684913701_3684913707_5742359511_0" type="ped" begin="25200" end="28800" period="60.0">
-        <walk from="364444887#0" to="364444887#2"/>
+    <personFlow id="ped_cluster_3684913700_3684913701_3684913707_5742359511_0" type="ped" begin="25200" end="28800" period="exp(0.016667)">
+        <walk from="292331046#1" to="364444887#2"/>
     </personFlow>
-    <personFlow id="ped_cluster_3684913700_3684913701_3684913707_5742359511_1" type="ped" begin="25200" end="28800" period="60.0">
-        <walk from="364444887#2" to="364444887#0"/>
+    <personFlow id="ped_cluster_3684913700_3684913701_3684913707_5742359511_1" type="ped" begin="25200" end="28800" period="exp(0.016667)">
+        <walk from="364444887#3" to="364444887#0"/>
     </personFlow>
 </routes>

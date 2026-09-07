@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2026-09-06T20:37:18.856934-03:00 by Eclipse SUMO duarouter 1.27.1
+<!-- generated on 2026-09-07T08:59:38.860540-03:00 by Eclipse SUMO duarouter 1.27.1
 <duarouterConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
 
     <input>
-        <net-file value="D:\Program Files\Programming\smart-traffic-agents\mapa\backup\mapa.net.xml"/>
-        <additional-files value="D:\Program Files\Programming\smart-traffic-agents\mapa\backup\bairros.taz.xml"/>
-        <route-files value="D:\Program Files\Programming\smart-traffic-agents\simulacoes\rotas\superpico.trips.xml"/>
+        <net-file value="../../mapa/backup/mapa.net.xml"/>
+        <additional-files value="../../mapa/backup/bairros.taz.xml"/>
+        <route-files value="superpico.trips.xml"/>
     </input>
 
     <output>
-        <output-file value="D:\Program Files\Programming\smart-traffic-agents\simulacoes\rotas\superpico.rou.xml"/>
+        <output-file value="superpico.rou.xml"/>
     </output>
 
     <processing>
@@ -31,11 +31,11 @@
     <vehicle id="v_po_2_po_8_26" type="moto" depart="25200.03" fromTaz="po_2" toTaz="po_8">
         <route edges="277711396#0 277711396#1 277711396#2 278275397 95972779#0 95972779#1 339827775 137146993#0 137146993#1 137146993#2 137146993#3 81096921#0 81096921#1 81096921#2 81096921#3 81096921#4 81096921#5 81096921#6 81096921#7 81096921#8 81096921#9 847324873 790903681 749088707#1 749088707#2 749088707#3 749088707#4 749088707#5 749088707#7 749088707#8 749088707#11 749088707#12 749088707#13 749088707#14 749088707#15 749088707#16 80566624 81178606#0 81178606#1"/>
     </vehicle>
-    <vType id="car_agressivo" length="4.50" minGap="1.20" maxSpeed="22.20" probability="0.10" speedFactor="normc(1.20,0.15,1.00,1.40)" vClass="passenger" color="230,51,51" lcStrategic="2.5" lcCooperative="0.3" lcSpeedGain="3.0" lcKeepRight="0.2" accel="3.2" decel="5.0" sigma="0.1"/>
+    <vType id="car_agressivo" length="4.50" minGap="1.20" maxSpeed="22.20" probability="0.10" speedFactor="normc(1.20,0.15,1.00,1.40)" vClass="passenger" color="230,51,51" lcStrategic="2.5" lcCooperative="0.3" lcSpeedGain="3.0" lcKeepRight="0.1" accel="3.2" decel="5.0" sigma="0.1"/>
     <vehicle id="v_po_6_po_8_31" type="car_agressivo" depart="25200.33" fromTaz="po_6" toTaz="po_8">
         <route edges="81178606#0 81178606#1"/>
     </vehicle>
-    <vType id="car_padrao" length="4.50" minGap="2.00" maxSpeed="16.70" probability="0.63" speedFactor="normc(1.00,0.10,0.80,1.20)" vClass="passenger" color="204,204,204" lcStrategic="1.5" lcCooperative="1.0" lcSpeedGain="1.5" lcKeepRight="0.8" accel="2.6" decel="4.5" sigma="0.2"/>
+    <vType id="car_padrao" length="4.50" minGap="2.00" maxSpeed="16.70" probability="0.63" speedFactor="normc(1.00,0.10,0.80,1.20)" vClass="passenger" color="204,204,204" lcStrategic="1.5" lcCooperative="1.0" lcSpeedGain="1.5" lcKeepRight="0.3" accel="2.6" decel="4.5" sigma="0.2"/>
     <vehicle id="v_po_2_po_8_21" type="car_padrao" depart="25200.97" fromTaz="po_2" toTaz="po_8">
         <route edges="277711396#0 277711396#1 277711396#2 278275397 95972779#0 95972779#1 339827775 137146993#0 137146993#1 137146993#2 137146993#3 81096921#0 81096921#1 81096921#2 81096921#3 81096921#4 81096921#5 81096921#6 81096921#7 81096921#8 81096921#9 847324873 790903681 749088707#1 749088707#2 749088707#3 749088707#4 749088707#5 749088707#7 749088707#8 749088707#11 749088707#12 749088707#13 749088707#14 749088707#15 749088707#16 80566624 81178606#0 81178606#1"/>
     </vehicle>
@@ -102,7 +102,7 @@
     <vehicle id="v_po_5_po_7_0" type="car_agressivo" depart="25209.85" fromTaz="po_5" toTaz="po_7">
         <route edges="-1549138804#2 -1549138810 957885457#6 957885457#7 957885457#8 957885457#9 957885457#10 170010815#0 170010815#1 170010815#2 170010815#3 170010815#4 170010815#5 170010815#6 84262649#0 84262649#1 84262649#2 84262649#3 84262649#4 84262649#5 84262649#6 84262649#7 170006287#1 170006302#1 170006302#2 170006302#3 170006302#5 754896451 754896452#1 754896450 754896453#0 754896453#1 754896453#2 1364375576#0 1364375578#1 1364375578#2 1364375578#3 1364375578#4 1126989032#0 1126989032#1 415380023#0 415380023#1 415380023#2 82691948 415380022#0 415380022#1 415380022#2 187017416#1 187017416#3 187017416#4 164258442#7 164258442#9 164258442#10 164258442#11 164258442#12 164258442#13 82986558#0"/>
     </vehicle>
-    <vType id="bus" length="12.00" minGap="2.50" maxSpeed="12.50" probability="0.04" speedFactor="0.90" vClass="bus" color="0,128,255" lcKeepRight="1.5" accel="1.2" decel="3.5" sigma="0.1"/>
+    <vType id="bus" length="12.00" minGap="2.50" maxSpeed="12.50" probability="0.04" speedFactor="0.90" vClass="bus" color="0,128,255" lcKeepRight="0.8" accel="1.2" decel="3.5" sigma="0.1"/>
     <vehicle id="v_po_8_po_7_103" type="bus" depart="25210.00" fromTaz="po_8" toTaz="po_7">
         <route edges="82981736#3 82981736#4"/>
     </vehicle>
@@ -133,7 +133,7 @@
     <vehicle id="v_po_5_po_8_40" type="car_padrao" depart="25211.98" fromTaz="po_5" toTaz="po_8">
         <route edges="-1549138804#2 -1549138810 957885457#6 957885457#7 957885457#8 957885457#9 957885457#10 170010815#0 170010815#1 170010815#2 170010815#3 170010815#4 170010815#5 170010815#6 84262649#0 84262649#1 84262649#2 84262649#3 84262649#4 84262649#5 84262649#6 84262649#7 170006287#1 170006302#1 513736104 170170959#1 170170969#2 170170969#3 724193760#0 724193760#1 724193760#2 84237165 84241267#0 84241267#1 84241267#2 84241267#3 754622808#0 754622808#1 749088707#12 749088707#13 749088707#14 749088707#15 749088707#16 80566624 81178606#0 81178606#1"/>
     </vehicle>
-    <vType id="truck" length="8.50" minGap="2.50" maxSpeed="11.10" probability="0.03" speedFactor="0.85" vClass="truck" color="128,77,0" lcKeepRight="2.0" accel="1.0" decel="3.5" sigma="0.1"/>
+    <vType id="truck" length="8.50" minGap="2.50" maxSpeed="11.10" probability="0.03" speedFactor="0.85" vClass="truck" color="128,77,0" lcKeepRight="1.0" accel="1.0" decel="3.5" sigma="0.1"/>
     <vehicle id="v_po_6_po_7_11" type="truck" depart="25212.14" fromTaz="po_6" toTaz="po_7">
         <route edges="-82980456#10 -82980456#7"/>
     </vehicle>

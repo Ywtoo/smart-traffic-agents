@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2026-09-06T20:36:53.452673-03:00 by Eclipse SUMO duarouter 1.27.1
+<!-- generated on 2026-09-07T08:59:10.805310-03:00 by Eclipse SUMO duarouter 1.27.1
 <duarouterConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
 
     <input>
-        <net-file value="D:\Program Files\Programming\smart-traffic-agents\mapa\backup\mapa.net.xml"/>
-        <additional-files value="D:\Program Files\Programming\smart-traffic-agents\mapa\backup\bairros.taz.xml"/>
-        <route-files value="D:\Program Files\Programming\smart-traffic-agents\simulacoes\rotas\pico_chuva.trips.xml"/>
+        <net-file value="../../mapa/backup/mapa.net.xml"/>
+        <additional-files value="../../mapa/backup/bairros.taz.xml"/>
+        <route-files value="pico_chuva.trips.xml"/>
     </input>
 
     <output>
-        <output-file value="D:\Program Files\Programming\smart-traffic-agents\simulacoes\rotas\pico_chuva.rou.xml"/>
+        <output-file value="pico_chuva.rou.xml"/>
     </output>
 
     <processing>
@@ -27,15 +27,15 @@
 -->
 
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
-    <vType id="bus" length="12.00" minGap="4.00" maxSpeed="10.00" probability="0.04" speedFactor="0.80" vClass="bus" color="0,128,255" lcKeepRight="1.8" accel="0.9" decel="2.5" sigma="0.2"/>
+    <vType id="bus" length="12.00" minGap="4.00" maxSpeed="10.00" probability="0.04" speedFactor="0.80" vClass="bus" color="0,128,255" lcKeepRight="1.0" accel="0.9" decel="2.5" sigma="0.2"/>
     <vehicle id="v_po_9_po_2_17" type="bus" depart="25200.13" fromTaz="po_9" toTaz="po_2">
         <route edges="1214632569#1 166262835#0 166262835#1 166262835#2 166262835#3 166262835#6 166262835#7 166262835#8 166262835#9 166262835#10 166262835#11 1214632560#0 1214632560#1 443050998#1 443050998#2 443050998#4 1214632559 81940770 514532527 81178611#0 81178611#1 89717740#0 89717740#1 89717740#2 89717740#3 89717740#4 163971740 292330043#0 292330043#1 292330043#2 292330043#3 292330043#4 292330043#5 292330043#6 292330043#7 292330043#8 292330043#9 292330043#10 292330043#11 292330043#13 292330043#14 292330043#15 1364375578#1 1364375578#2 1364375578#3 1364375578#4 1364375578#5 1126989037 1126989036 415380477 749088708 847324875#0 847324875#1 847324875#2 847324875#3 415380480#0 415380480#1 415380480#2 415380480#3 415380480#4 415380480#5 137146992 95972780 339827928 81096931#3 82696059#0 82696059#1 82696059#2"/>
     </vehicle>
-    <vType id="car_agressivo" length="4.50" minGap="2.20" maxSpeed="15.50" probability="0.06" speedFactor="normc(1.05,0.10,0.90,1.20)" vClass="passenger" color="204,51,51" lcStrategic="2.5" lcCooperative="0.3" lcSpeedGain="2.0" lcKeepRight="0.4" accel="2.2" decel="3.8" sigma="0.3"/>
+    <vType id="car_agressivo" length="4.50" minGap="2.20" maxSpeed="15.50" probability="0.06" speedFactor="normc(1.05,0.10,0.90,1.20)" vClass="passenger" color="204,51,51" lcStrategic="2.5" lcCooperative="0.3" lcSpeedGain="2.0" lcKeepRight="0.1" accel="2.2" decel="3.8" sigma="0.3"/>
     <vehicle id="v_po_7_po_6_14" type="car_agressivo" depart="25200.31" fromTaz="po_7" toTaz="po_6">
         <route edges="82980456#7 82980456#10"/>
     </vehicle>
-    <vType id="car_padrao" length="4.50" minGap="3.50" maxSpeed="12.50" probability="0.68" speedFactor="normc(0.85,0.08,0.70,1.00)" vClass="passenger" color="153,153,153" lcStrategic="1.5" lcCooperative="1.0" lcSpeedGain="1.0" lcKeepRight="1.0" accel="1.8" decel="3.2" sigma="0.4"/>
+    <vType id="car_padrao" length="4.50" minGap="3.50" maxSpeed="12.50" probability="0.68" speedFactor="normc(0.85,0.08,0.70,1.00)" vClass="passenger" color="153,153,153" lcStrategic="1.5" lcCooperative="1.0" lcSpeedGain="1.0" lcKeepRight="0.5" accel="1.8" decel="3.2" sigma="0.4"/>
     <vehicle id="v_po_2_po_8_2" type="car_padrao" depart="25201.95" fromTaz="po_2" toTaz="po_8">
         <route edges="277711396#0 277711396#1 277711396#2 278275397 95972779#0 95972779#1 339827775 137146993#0 137146993#1 137146993#2 137146993#3 81096921#0 81096921#1 81096921#2 81096921#3 81096921#4 81096921#5 81096921#6 81096921#7 81096921#8 81096921#9 847324873 790903681 749088707#1 749088707#2 749088707#3 749088707#4 749088707#5 749088707#7 749088707#8 749088707#11 749088707#12 749088707#13 749088707#14 749088707#15 749088707#16 80566624 81178606#0 81178606#1"/>
     </vehicle>
@@ -48,7 +48,7 @@
     <vehicle id="v_po_8_po_0_101" type="car_padrao" depart="25205.04" fromTaz="po_8" toTaz="po_0">
         <route edges="89717740#4 163971740 292330043#0 292330043#1 292330043#2 292330043#3 292330043#4 292330043#5 292330043#6 292330043#7 292330043#8 292330043#9 292330043#10 292330043#11 292330043#13 292330043#14 292330043#15 1364375578#1 1364375578#2 1364375578#3 1364375578#4 1364375578#5 1126989037 1126989036 415380477 749088708 847324875#0 847324875#1 847324875#2 847324875#3 415380480#0 415380480#1 415380480#2 415380480#3 415380480#4 415380480#5 137146992 95972780 339827928 81096931#3 81096931#4 81096931#6 81096931#7 81096931#8 81096931#9 847324876 231771018#0 231771018#1 231771018#2 231771018#3 231771018#4 82753206 82818894"/>
     </vehicle>
-    <vType id="moto" length="2.20" minGap="2.00" maxSpeed="13.90" probability="0.15" speedFactor="normc(0.90,0.10,0.75,1.10)" vClass="motorcycle" color="230,102,0" lcStrategic="2.0" lcSpeedGain="1.5" lcKeepRight="0.5" accel="2.2" decel="3.5" sigma="0.5"/>
+    <vType id="moto" length="2.20" minGap="2.00" maxSpeed="13.90" probability="0.15" speedFactor="normc(0.90,0.10,0.75,1.10)" vClass="motorcycle" color="230,102,0" lcStrategic="2.0" lcSpeedGain="1.5" lcKeepRight="0.2" accel="2.2" decel="3.5" sigma="0.5"/>
     <vehicle id="v_po_7_po_0_52" type="moto" depart="25205.68" fromTaz="po_7" toTaz="po_0">
         <route edges="-82787655#0 81109438#5 149573132 1059383551#0 1059383551#1 1059383551#2 1059383551#3 1059383551#4 1059383551#5 338665937#0 338665937#1 338665937#2 415380480#2 415380480#3 415380480#4 415380480#5 137146992 95972780 339827928 81096931#3 81096931#4 81096931#6 81096931#7 81096931#8 81096931#9 847324876 231771018#0 231771018#1 231771018#2 231771018#3 231771018#4 82753206 82818894"/>
     </vehicle>
@@ -103,7 +103,7 @@
     <vehicle id="v_po_7_po_0_87" type="car_padrao" depart="25226.02" fromTaz="po_7" toTaz="po_0">
         <route edges="-82787655#0 81109438#5 149573132 1059383551#0 1059383551#1 1059383551#2 1059383551#3 1059383551#4 1059383551#5 338665937#0 338665937#1 338665937#2 415380480#2 415380480#3 415380480#4 415380480#5 137146992 95972780 339827928 81096931#3 81096931#4 81096931#6 81096931#7 81096931#8 81096931#9 847324876 231771018#0 231771018#1 231771018#2 231771018#3 231771018#4 82753206 82818894"/>
     </vehicle>
-    <vType id="truck" length="8.50" minGap="4.00" maxSpeed="9.50" probability="0.03" speedFactor="0.75" vClass="truck" color="128,77,0" lcKeepRight="2.0" accel="0.8" decel="2.5" sigma="0.2"/>
+    <vType id="truck" length="8.50" minGap="4.00" maxSpeed="9.50" probability="0.03" speedFactor="0.75" vClass="truck" color="128,77,0" lcKeepRight="1.0" accel="0.8" decel="2.5" sigma="0.2"/>
     <vehicle id="v_po_7_po_0_92" type="truck" depart="25226.14" fromTaz="po_7" toTaz="po_0">
         <route edges="-82787655#0 81109438#5 149573132 1059383551#0 1059383551#1 1059383551#2 1059383551#3 1059383551#4 1059383551#5 338665937#0 338665937#1 338665937#2 415380480#2 415380480#3 415380480#4 415380480#5 137146992 95972780 339827928 81096931#3 81096931#4 81096931#6 81096931#7 81096931#8 81096931#9 847324876 231771018#0 231771018#1 231771018#2 231771018#3 231771018#4 82753206 82818894"/>
     </vehicle>
