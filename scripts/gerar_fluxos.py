@@ -14,22 +14,6 @@ Regras de Demanda:
 
   Toda viagem é SEMPRE entre dois TAZ diferentes (o == d nunca gera viagem).
 
-================================================================================
-COMO FUNCIONA (mudança em relação à versão anterior)
-================================================================================
-Este script agora só gera TRIPS com fromTaz/toTaz (sem sortear aresta manual
-dentro do TAZ). Quem escolhe a aresta de entrada/saída dentro de cada zona e
-calcula a rota de verdade é o duarouter, usando o próprio bairros.taz.xml.
-
-Isso elimina:
-  - parsing manual de allow/disallow de lane (sumolib faz isso melhor)
-  - parsing manual de <connection> via regex
-  - sorteio de aresta "boa" sem garantia de rota completa até o destino
-
-E resolve a causa mais comum de teleporte: trip nascendo numa aresta sem
-caminho real até o destino. O duarouter reporta/descrada esses casos com
---repair e --ignore-errors ao invés de deixar a simulação teleportar.
-
 Depois de gerar o .trips.xml, rode (ou use o helper `rotear.sh` gerado):
 
     duarouter --net-file mapa/backup/mapa.net.xml \\
@@ -40,8 +24,6 @@ Depois de gerar o .trips.xml, rode (ou use o helper `rotear.sh` gerado):
               --ignore-errors \\
               --randomize-flows \\
               -o <arquivo>.rou.xml
-
-Isso substitui as antigas ARESTAS_TRAGEGAVEIS / ARESTAS_BOAS por completo.
 ================================================================================
 """
 
@@ -112,7 +94,7 @@ def calcular_matriz_fluxos():
             if o == d:
                 continue  # nunca viagem dentro do mesmo bairro
             if (o, d) in PARES_PROIBIDOS:
-                continue
+                continue  # pares proibidos (internos/adjacentes)
 
             e_alto_o = o in POLOS_ALTOS
             e_alto_d = d in POLOS_ALTOS
@@ -138,7 +120,7 @@ VIAGENS_CALIBRADAS = calcular_matriz_fluxos()
 
 
 # ==============================================================================
-# 3. FÍSICA DOS VEÍCULOS (inalterado — mesma lógica de antes)
+# 3. FÍSICA DOS VEÍCULOS
 # ==============================================================================
 CONFIGURACOES_CLIMATICAS = {
     "PISTA_SECA": {
@@ -146,14 +128,14 @@ CONFIGURACOES_CLIMATICAS = {
             "porcentagem": 0.630, "comprimento_metros": 4.5, "velocidade_maxima_ms": 16.7,
             "aceleracao": 2.6, "desaceleracao": 4.5, "distancia_parado_fila_metros": 2.0,
             "hesitacao_humana": 0.2, "variacao_velocidade": "normc(1.0,0.1,0.8,1.2)",
-            "vontade_trocar_faixa_para_ultrapassar": 1.5, "preferencia_faixa_direita": 0.8,
+            "vontade_trocar_faixa_para_ultrapassar": 1.5, "preferencia_faixa_direita": 0.3,
             "cor": "0.8,0.8,0.8"
         },
         "carro_apressado_doido": {
             "porcentagem": 0.100, "comprimento_metros": 4.5, "velocidade_maxima_ms": 22.2,
             "aceleracao": 3.2, "desaceleracao": 5.0, "distancia_parado_fila_metros": 1.2,
             "hesitacao_humana": 0.1, "variacao_velocidade": "normc(1.2,0.15,1.0,1.4)",
-            "vontade_trocar_faixa_para_ultrapassar": 3.0, "preferencia_faixa_direita": 0.2,
+            "vontade_trocar_faixa_para_ultrapassar": 3.0, "preferencia_faixa_direita": 0.1,
             "cor": "0.9,0.2,0.2"
         },
         "moto": {
@@ -167,14 +149,14 @@ CONFIGURACOES_CLIMATICAS = {
             "porcentagem": 0.035, "comprimento_metros": 12.0, "velocidade_maxima_ms": 12.5,
             "aceleracao": 1.2, "desaceleracao": 3.5, "distancia_parado_fila_metros": 2.5,
             "hesitacao_humana": 0.1, "variacao_velocidade": "0.9",
-            "vontade_trocar_faixa_para_ultrapassar": 0.5, "preferencia_faixa_direita": 1.5,
+            "vontade_trocar_faixa_para_ultrapassar": 0.5, "preferencia_faixa_direita": 0.8,
             "cor": "0.0,0.5,1.0"
         },
         "caminhao": {
             "porcentagem": 0.026, "comprimento_metros": 8.5, "velocidade_maxima_ms": 11.1,
             "aceleracao": 1.0, "desaceleracao": 3.5, "distancia_parado_fila_metros": 2.5,
             "hesitacao_humana": 0.1, "variacao_velocidade": "0.85",
-            "vontade_trocar_faixa_para_ultrapassar": 0.3, "preferencia_faixa_direita": 2.0,
+            "vontade_trocar_faixa_para_ultrapassar": 0.3, "preferencia_faixa_direita": 1.0,
             "cor": "0.5,0.3,0.0"
         },
         "bicicleta": {
@@ -195,35 +177,35 @@ CONFIGURACOES_CLIMATICAS = {
             "porcentagem": 0.680, "comprimento_metros": 4.5, "velocidade_maxima_ms": 12.5,
             "aceleracao": 1.8, "desaceleracao": 3.2, "distancia_parado_fila_metros": 3.5,
             "hesitacao_humana": 0.4, "variacao_velocidade": "normc(0.85,0.08,0.7,1.0)",
-            "vontade_trocar_faixa_para_ultrapassar": 1.0, "preferencia_faixa_direita": 1.0,
+            "vontade_trocar_faixa_para_ultrapassar": 1.0, "preferencia_faixa_direita": 0.5,
             "cor": "0.6,0.6,0.6"
         },
         "carro_apressado_doido": {
             "porcentagem": 0.060, "comprimento_metros": 4.5, "velocidade_maxima_ms": 15.5,
             "aceleracao": 2.2, "desaceleracao": 3.8, "distancia_parado_fila_metros": 2.2,
             "hesitacao_humana": 0.3, "variacao_velocidade": "normc(1.05,0.1,0.9,1.2)",
-            "vontade_trocar_faixa_para_ultrapassar": 2.0, "preferencia_faixa_direita": 0.4,
+            "vontade_trocar_faixa_para_ultrapassar": 2.0, "preferencia_faixa_direita": 0.1,
             "cor": "0.8,0.2,0.2"
         },
         "moto": {
             "porcentagem": 0.150, "comprimento_metros": 2.2, "velocidade_maxima_ms": 13.9,
             "aceleracao": 2.2, "desaceleracao": 3.5, "distancia_parado_fila_metros": 2.0,
             "hesitacao_humana": 0.5, "variacao_velocidade": "normc(0.9,0.1,0.75,1.1)",
-            "vontade_trocar_faixa_para_ultrapassar": 1.5, "preferencia_faixa_direita": 0.5,
+            "vontade_trocar_faixa_para_ultrapassar": 1.5, "preferencia_faixa_direita": 0.2,
             "cor": "0.9,0.4,0.0"
         },
         "onibus": {
             "porcentagem": 0.045, "comprimento_metros": 12.0, "velocidade_maxima_ms": 10.0,
             "aceleracao": 0.9, "desaceleracao": 2.5, "distancia_parado_fila_metros": 4.0,
             "hesitacao_humana": 0.2, "variacao_velocidade": "0.8",
-            "vontade_trocar_faixa_para_ultrapassar": 0.3, "preferencia_faixa_direita": 1.8,
+            "vontade_trocar_faixa_para_ultrapassar": 0.3, "preferencia_faixa_direita": 1.0,
             "cor": "0.0,0.5,1.0"
         },
         "caminhao": {
             "porcentagem": 0.030, "comprimento_metros": 8.5, "velocidade_maxima_ms": 9.5,
             "aceleracao": 0.8, "desaceleracao": 2.5, "distancia_parado_fila_metros": 4.0,
             "hesitacao_humana": 0.2, "variacao_velocidade": "0.75",
-            "vontade_trocar_faixa_para_ultrapassar": 0.2, "preferencia_faixa_direita": 2.0,
+            "vontade_trocar_faixa_para_ultrapassar": 0.2, "preferencia_faixa_direita": 1.0,
             "cor": "0.5,0.3,0.0"
         },
         "bicicleta": {
@@ -305,7 +287,7 @@ def construir_bloco_veiculos(clima_chuva=False):
 
 
 # ==============================================================================
-# 4. GERAÇÃO DE TRIPS (fromTaz/toTaz — sem sortear aresta manualmente)
+# 4. GERAÇÃO DE TRIPS
 # ==============================================================================
 def salvar_arquivo_trips(caminho_arquivo, multiplicador_volume=1.0, clima_chuva=False,
                           segundo_inicio=25200, segundo_fim=28800):
@@ -441,7 +423,6 @@ if __name__ == "__main__":
         ("pico.trips.xml",            1.00, False),
         ("pico_chuva.trips.xml",      1.00, True),
         ("superpico.trips.xml",       2.00, False),
-        ("superpico_chuva.trips.xml", 2.00, True),
     ]
 
     for nome_arq, fator, chovendo in CENARIOS:

@@ -2,8 +2,6 @@
 
 Este documento consolida os levantamentos volumétricos, parâmetros operacionais da via, composição veicular e dados de infraestrutura urbana utilizados para subsidiar e calibrar as simulações microscópicas no SUMO (*Simulation of Urban MObility*).
 
-> **Escopo do repositório:** esta calibração foi implementada para o **pico matutino (07:00–08:00)**. O pico vespertino (17:30–18:30) é descrito como dados de campo, mas **não está parametrizado como cenário de simulação** neste repositório.
-
 ---
 
 ## 1. Características Físicas e Operacionais da Via
@@ -84,7 +82,7 @@ A amostragem volumétrica direta em período de pico (amostra de 11.429 veículo
 * **Tempos de Ciclo Típicos (Horário de Pico):** 
   * Ciclos de 90 a 120 segundos, com distribuição aproximada de 60% a 70% de tempo verde reservado para a via principal (Tancredo Neves) e 30% a 40% para as vias transversais coletoras.
 * **Implementação no SUMO:**
-  * Semáforos convencionais: usados nos cenários base (`pico`, `pico_chuva`, `superpico`, `superpico_chuva`).
+  * Semáforos convencionais: usados nos cenários base (`pico`, `pico_chuva`, `superpico`).
   * Semáforos adaptativos ("inteligentes"/"radar_novo"): usados nos cenários com a injeção de `mapa/backup/semaforos_adaptativos.add.xml` nos configs terminados em `_radar_novo`.
 
 ---
@@ -131,7 +129,6 @@ Isso permite comparar o desempenho com e sem o controlamento adaptativo no mesmo
   * Fator de carregamento: 200% do pico (~5.600 veíc/h).
   * Objetivo: Análise de estresse de infraestrutura, colapso de capacidade e propagação de filas em efeito dominó (spillback).
 
-* **Super pico com chuva:** não está implementado neste repositório. O script de geração de fluxos ainda produz `superpico_chuva.trips.xml`, mas não há `.sumocfg` nem `.rou.xml` correspondente pronto para execução.
 ---
 
 ## 6. Fluxo de Geração de Rotas e Execução
