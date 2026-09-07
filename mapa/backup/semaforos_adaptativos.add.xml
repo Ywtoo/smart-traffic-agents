@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Programas adaptativos (actuated) reconstruidos para a rede nova com faixas de pedestre. -->
+<!-- Gerado por ajustar_semaforos.py: estados da rede nova + tempos min/max do programa SMTT original. -->
+<additional>
+    <tlLogic id="10183354272" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="GGGr" duration="81.0" minDur="5.0" maxDur="162.0"/>
+        <phase state="yyyr" duration="4.0" minDur="4.0" maxDur="4.0"/>
+        <phase state="rrrG" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="1596290892" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="GGGr" duration="81.0" minDur="5.0" maxDur="162.0"/>
+        <phase state="yyyr" duration="4.0" minDur="4.0" maxDur="4.0"/>
+        <phase state="rrrG" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="1873112476" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="GGGrrrr" duration="40.0" minDur="5.0" maxDur="80.0"/>
+        <phase state="yyyrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrGGGG" duration="40.0" minDur="5.0" maxDur="80.0"/>
+        <phase state="rrrGGGr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrryyyr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="2716378350" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="GG" duration="82.0" minDur="5.0" maxDur="164.0"/>
+        <phase state="yy" duration="3.0" minDur="3.0" maxDur="3.0"/>
+        <phase state="rr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="3151677322" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="GGGr" duration="81.0" minDur="5.0" maxDur="162.0"/>
+        <phase state="yyyr" duration="4.0" minDur="4.0" maxDur="4.0"/>
+        <phase state="rrrG" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="3189509514" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="GGGG" duration="81.0" minDur="5.0" maxDur="162.0"/>
+        <phase state="yyyy" duration="4.0" minDur="4.0" maxDur="4.0"/>
+        <phase state="rrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="4436591891" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="rrrGGGrrrGrr" duration="33.0" minDur="5.0" maxDur="66.0"/>
+        <phase state="rrrGGGrrrrrr" duration="6.0" minDur="5.0" maxDur="60.0"/>
+        <phase state="rrryyyrrrrrr" duration="6.0" minDur="5.0" maxDur="60.0"/>
+        <phase state="gGGrrrrrrrrG" duration="33.0" minDur="5.0" maxDur="66.0"/>
+        <phase state="gGGrrrrrrrrr" duration="6.0" minDur="6.0" maxDur="6.0"/>
+        <phase state="yyyrrrrrrrrr" duration="6.0" minDur="6.0" maxDur="6.0"/>
+        <phase state="rrrrrrgGGGGr" duration="19.0" minDur="19.0" maxDur="19.0"/>
+        <phase state="rrrrrrgGGrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrrrryyyrrr" duration="6.0" minDur="6.0" maxDur="6.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="7049424909" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="GGrr" duration="80.0" minDur="5.0" maxDur="160.0"/>
+        <phase state="yyrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrGG" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="939897262" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="GGG" duration="81.0" minDur="5.0" maxDur="162.0"/>
+        <phase state="yyy" duration="4.0" minDur="4.0" maxDur="4.0"/>
+        <phase state="rrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="940880599" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="GGGr" duration="81.0" minDur="5.0" maxDur="162.0"/>
+        <phase state="yyyr" duration="4.0" minDur="4.0" maxDur="4.0"/>
+        <phase state="rrrG" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="945147180" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="GGGG" duration="81.0" minDur="5.0" maxDur="162.0"/>
+        <phase state="yyyy" duration="4.0" minDur="4.0" maxDur="4.0"/>
+        <phase state="rrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="945963431" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="Grrr" duration="39.0" minDur="5.0" maxDur="78.0"/>
+        <phase state="yrrr" duration="6.0" minDur="6.0" maxDur="6.0"/>
+        <phase state="rGGG" duration="39.0" minDur="5.0" maxDur="78.0"/>
+        <phase state="rGGr" duration="6.0" minDur="6.0" maxDur="6.0"/>
+        <phase state="ryyr" duration="6.0" minDur="6.0" maxDur="6.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="960694562" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="gGGGrrrGr" duration="40.0" minDur="5.0" maxDur="80.0"/>
+        <phase state="gGGGrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="yyyyrrrrr" duration="40.0" minDur="5.0" maxDur="80.0"/>
+        <phase state="rrrrGGGrG" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrrGGGrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrryyyrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="960694565" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="gGrrrGGr" duration="40.0" minDur="5.0" maxDur="80.0"/>
+        <phase state="gGrrrGrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="yyrrrGrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrGGGGrG" duration="40.0" minDur="5.0" maxDur="80.0"/>
+        <phase state="rrGGGGrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rryyyGrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="960694568" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="GGGrrr" duration="80.0" minDur="5.0" maxDur="160.0"/>
+        <phase state="yyyrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrGGG" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrGGr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrryyr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="cluster_10033491073_10033491074_3243815987_3243815988_#3more" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="GGGGggggrrrrrGGGGGggGggggrrrr" duration="41.0" minDur="5.0" maxDur="82.0"/>
+        <phase state="yyyyyyyyrrrrryyyyyyyyyyyyrrrr" duration="4.0" minDur="5.0" maxDur="60.0"/>
+        <phase state="rrrrrrrrGGGgGrrrrrrrrrrrrrGrG" duration="41.0" minDur="5.0" maxDur="82.0"/>
+        <phase state="rrrrrrrrGGGgGrrrrrrrrrrrrrrrr" duration="4.0" minDur="5.0" maxDur="60.0"/>
+        <phase state="rrrrrrrryyyyyrrrrrrrrrrrrrrrr" duration="4.0" minDur="4.0" maxDur="4.0"/>
+        <phase state="rrrrrrrrrrrrrrrrrrrrrrrrrGGGG" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrrrrrrrrrrrrrrrrrrrrrrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="cluster_10103575705_954884758" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="GGr" duration="81.0" minDur="5.0" maxDur="162.0"/>
+        <phase state="yyr" duration="4.0" minDur="4.0" maxDur="4.0"/>
+        <phase state="rrG" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="cluster_10174283056_10302349112_1868072702_1868072703" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="rrrrgGggrrrrgGGggGrrGrr" duration="39.0" minDur="5.0" maxDur="78.0"/>
+        <phase state="rrrrgGggrrrrgGGggrrrrrr" duration="6.0" minDur="6.0" maxDur="6.0"/>
+        <phase state="rrrryyyyrrrryyyyyrrrrrr" duration="39.0" minDur="5.0" maxDur="78.0"/>
+        <phase state="gGggrrrrgGggrrrrrrGGrGG" duration="6.0" minDur="6.0" maxDur="6.0"/>
+        <phase state="gGggrrrrgGggrrrrrrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="yyyyrrrryyyyrrrrrrrrrrr" duration="6.0" minDur="6.0" maxDur="6.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="cluster_10175800330_10175800331_10175800332_6791723215_#5more" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="ggggrrrrGGggggggrrrrrGGggrGrrG" duration="35.0" minDur="5.0" maxDur="70.0"/>
+        <phase state="ggggrrrrGGggggggrrrrrGGggrrrrr" duration="5.0" minDur="5.0" maxDur="60.0"/>
+        <phase state="ggggrrrryyygggggrrrrryyygrrrrr" duration="6.0" minDur="5.0" maxDur="60.0"/>
+        <phase state="ggggrrrrrrrGggggrrrrrrrrGrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="yyyyrrrrrrryyyyyrrrrrrrryrrrrr" duration="34.0" minDur="5.0" maxDur="68.0"/>
+        <phase state="rrrrGGggrrrrrrrrGGgggrrrrrrGrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrrGGggrrrrrrrrGGgggrrrrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrryyyyrrrrrrrryyyyyrrrrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrrrrrrrrrrrrrrrrrrrrrrrGGGGG" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrrrrrrrrrrrrrrrrrrrrrrrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="cluster_10183354264_10183354265_10183354266_7020980338_#1more" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="GGGGrrrrGGGggrrGrrr" duration="40.0" minDur="5.0" maxDur="80.0"/>
+        <phase state="GGGGrrrrGGGggrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="yyyyrrrryyyyyrrrrrr" duration="40.0" minDur="5.0" maxDur="80.0"/>
+        <phase state="rrrrgGggrrrrrGGrGGr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrrgGggrrrrrrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrryyyyrrrrrrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrrrrrrrrrrrGGGGGG" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrrrrrrrrrrrrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="cluster_10230881062_10897624401_10897691708_5391132885_#1more" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="gGGGgGGGrrrrrrrrG" duration="39.0" minDur="5.0" maxDur="78.0"/>
+        <phase state="gGGGgGGGrrrrrrrrr" duration="6.0" minDur="5.0" maxDur="60.0"/>
+        <phase state="yyyyyyyyrrrrrrrrr" duration="39.0" minDur="5.0" maxDur="78.0"/>
+        <phase state="rrrrrrrrgggGGGGGr" duration="6.0" minDur="5.0" maxDur="60.0"/>
+        <phase state="rrrrrrrrgggGrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrrrrrryyyyrrrrr" duration="6.0" minDur="6.0" maxDur="6.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="cluster_10536923218_10536923219_10536923220_10536923221_#6more" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="gGGggrrrrgGGggrrrrrGGrrGG" duration="39.0" minDur="5.0" maxDur="78.0"/>
+        <phase state="gGGggrrrrgGGggrrrrrrrrrrr" duration="6.0" minDur="6.0" maxDur="6.0"/>
+        <phase state="yyyyyrrrryyyyyrrrrrrrrrrr" duration="39.0" minDur="5.0" maxDur="78.0"/>
+        <phase state="rrrrrgGggrrrrrgGggGrrGGrr" duration="6.0" minDur="6.0" maxDur="6.0"/>
+        <phase state="rrrrrgGggrrrrrgGggrrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrrryyyyrrrrryyyyrrrrrrr" duration="6.0" minDur="6.0" maxDur="6.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="cluster_10537158931_1868072268_2960449217_5541236777_#1more" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="rrrrrgGGgggrrrrrGGGGggGrrrrrr" duration="39.0" minDur="5.0" maxDur="78.0"/>
+        <phase state="rrrrrgGGgggrrrrrGGGGggrrrrrrr" duration="6.0" minDur="6.0" maxDur="6.0"/>
+        <phase state="rrrrryyygggrrrrryyyyggrrrrrrr" duration="39.0" minDur="5.0" maxDur="78.0"/>
+        <phase state="rrrrrrrrGGGrrrrrrrrrGGrrrrrrr" duration="6.0" minDur="6.0" maxDur="6.0"/>
+        <phase state="rrrrrrrryyyrrrrrrrrryyrrrrrrr" duration="6.0" minDur="6.0" maxDur="6.0"/>
+        <phase state="gGgggrrrrrrGGGggrrrrrrrGrrrGG" duration="23.0" minDur="23.0" maxDur="23.0"/>
+        <phase state="gGgggrrrrrrGGGggrrrrrrrrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="yyyyyrrrrrryyyyyrrrrrrrrrrrrr" duration="6.0" minDur="6.0" maxDur="6.0"/>
+        <phase state="rrrrrrrrrrrrrrrrrrrrrrGGGGGGG" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrrrrrrrrrrrrrrrrrrrrrrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="cluster_1118076206_1484235765_2401034241" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="rrrrGGGGGggggGGGgggGrrrr" duration="39.0" minDur="5.0" maxDur="78.0"/>
+        <phase state="rrrrGGGGGggggGGGgggrrrrr" duration="6.0" minDur="6.0" maxDur="6.0"/>
+        <phase state="rrrryyyyyyyyyyyyyyyrrrrr" duration="39.0" minDur="5.0" maxDur="78.0"/>
+        <phase state="GGGgrrrrrrrrrrrrrrrrGrGr" duration="6.0" minDur="6.0" maxDur="6.0"/>
+        <phase state="GGGgrrrrrrrrrrrrrrrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="yyyyrrrrrrrrrrrrrrrrrrrr" duration="6.0" minDur="6.0" maxDur="6.0"/>
+        <phase state="rrrrrrrrrrrrrrrrrrrGGGGG" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrrrrrrrrrrrrrrrrrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="cluster_11253704928_1405088873_4682114373_6383368510_#1more" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="GGGGgGgggrGGGgggrrrrrrrrG" duration="33.0" minDur="5.0" maxDur="66.0"/>
+        <phase state="GGGGgGgggrGGGgggrrrrrrrrr" duration="6.0" minDur="5.0" maxDur="60.0"/>
+        <phase state="yyyyyygggryyygggrrrrrrrrr" duration="6.0" minDur="5.0" maxDur="60.0"/>
+        <phase state="rrrrrrGggrrrrGGgrrrrrrrrr" duration="6.0" minDur="6.0" maxDur="6.0"/>
+        <phase state="rrrrrryyyrrrryyyrrrrrrrrr" duration="33.0" minDur="5.0" maxDur="66.0"/>
+        <phase state="rrrrrrrrrgrrrrrrGGggGGGrr" duration="6.0" minDur="6.0" maxDur="6.0"/>
+        <phase state="rrrrrrrrrgrrrrrrGGggrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrrrrrrryrrrrrryyyyrrrrr" duration="6.0" minDur="6.0" maxDur="6.0"/>
+        <phase state="rrrrrrrrrrrrrrrrrrrrGGGGG" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrrrrrrrrrrrrrrrrrrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="cluster_12634610619_12634610621_12754452788_1484235720_#2more" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="rrrrrgGGGGggggggrrrrGGggggggGrrGrr" duration="35.0" minDur="5.0" maxDur="70.0"/>
+        <phase state="rrrrrgGGGGggggggrrrrGGggggggrrrrrr" duration="5.0" minDur="5.0" maxDur="60.0"/>
+        <phase state="rrrrryyyyyggggggrrrryyygggggrrrrrr" duration="6.0" minDur="5.0" maxDur="60.0"/>
+        <phase state="rrrrrrrrrrGgggggrrrrrrrGggggrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrrrrrrrryyyyyyrrrrrrryyyyyrrrrrr" duration="34.0" minDur="5.0" maxDur="68.0"/>
+        <phase state="GgggGrrrrrrrrrrrGGggrrrrrrrrrGrrGr" duration="5.0" minDur="5.0" maxDur="60.0"/>
+        <phase state="GgggGrrrrrrrrrrrGGggrrrrrrrrrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="yyyyyrrrrrrrrrrryyyyrrrrrrrrrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrrrrrrrrrrrrrrrrrrrrrrrrrrGGGGGG" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="cluster_1341153434_940880586" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="gGGrrrGGggrrGrrG" duration="40.0" minDur="5.0" maxDur="80.0"/>
+        <phase state="gGGrrrGGggrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="yyyrrryyyyrrrrrr" duration="40.0" minDur="5.0" maxDur="80.0"/>
+        <phase state="rrrgGgrrrrGGrGGr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrgGgrrrrrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrryyyrrrrrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="cluster_1405088867_5355422793_6499062249_6499062250" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="ggggGGGGgggGGGGgGgrrr" duration="76.0" minDur="5.0" maxDur="152.0"/>
+        <phase state="ggggyyyygggyyyygyyrrr" duration="4.0" minDur="5.0" maxDur="60.0"/>
+        <phase state="ggggrrrrgggrrrrGrrrrr" duration="6.0" minDur="5.0" maxDur="60.0"/>
+        <phase state="yyyyrrrryyyrrrryrrrrr" duration="4.0" minDur="5.0" maxDur="60.0"/>
+        <phase state="rrrrrrrrrrrrrrrrrrGGG" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrrrrrrrrrrrrrrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="cluster_1460629652_5541183335" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="gGGgGGrrrrrrrG" duration="40.0" minDur="5.0" maxDur="80.0"/>
+        <phase state="gGGgGGrrrrrrrr" duration="5.0" minDur="5.0" maxDur="60.0"/>
+        <phase state="yyyyyyrrrrrrrr" duration="40.0" minDur="5.0" maxDur="80.0"/>
+        <phase state="rrrrrrggGGGGGr" duration="5.0" minDur="5.0" maxDur="60.0"/>
+        <phase state="rrrrrrggGrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrrrryyyrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="cluster_1484235690_2401034239_5850113036_962701456" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="rrrrrrGGGGggGggggggGGGGGgggggGrrrrr" duration="40.0" minDur="5.0" maxDur="80.0"/>
+        <phase state="rrrrrrGGGGggGggggggGGGGGgggggrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrrrryyyyggyygggggyyyyygggggrrrrrr" duration="40.0" minDur="5.0" maxDur="80.0"/>
+        <phase state="rrrrrrrrrrGGrrgggggrrrrrgggggrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrrrrrrrryyrryyyyyrrrrryyyyyrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="gGGggGrrrrrrrrrrrrrrrrrrrrrrrrGGGGG" duration="29.0" minDur="29.0" maxDur="29.0"/>
+        <phase state="gGGggGrrrrrrrrrrrrrrrrrrrrrrrrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="yyyyyyrrrrrrrrrrrrrrrrrrrrrrrrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="cluster_1834911784_1834911794_1872981463_3189509571" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="GGGggGGGGrrrr" duration="81.0" minDur="5.0" maxDur="162.0"/>
+        <phase state="yyyyyyyyyrrrr" duration="4.0" minDur="4.0" maxDur="4.0"/>
+        <phase state="rrrrrrrrrGGGG" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrrrrrrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="cluster_3257481123_962701490" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="rGGGrrG" duration="40.0" minDur="5.0" maxDur="80.0"/>
+        <phase state="rGGGrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="ryyyrrr" duration="40.0" minDur="5.0" maxDur="80.0"/>
+        <phase state="grrrGGr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="grrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="yrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+    <tlLogic id="cluster_4405135806_6499062238_979849532" type="actuated" programID="adaptativo_smtt" offset="0">
+        <phase state="GGGgggrrrrGGGGgGgggrrrGrr" duration="39.0" minDur="5.0" maxDur="78.0"/>
+        <phase state="GGGgggrrrrGGGGgGgggrrrrrr" duration="6.0" minDur="6.0" maxDur="6.0"/>
+        <phase state="yyyyyyrrrryyyyyyyyyrrrrrr" duration="39.0" minDur="5.0" maxDur="78.0"/>
+        <phase state="rrrrrrggGGrrrrrrrrrGGGrGr" duration="6.0" minDur="6.0" maxDur="6.0"/>
+        <phase state="rrrrrrggGGrrrrrrrrrrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrrrryyyyrrrrrrrrrrrrrrr" duration="6.0" minDur="6.0" maxDur="6.0"/>
+        <phase state="rrrrrrrrrrrrrrrrrrrGGGGGG" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <phase state="rrrrrrrrrrrrrrrrrrrrrrrrr" duration="5.0" minDur="5.0" maxDur="5.0"/>
+        <param key="max-gap" value="3.0"/>
+    </tlLogic>
+</additional>

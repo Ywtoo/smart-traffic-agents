@@ -1,0 +1,24 @@
+<configuration>
+    <!-- Super Pico 2x Saturação (Com Semáforos Inteligentes) -->
+    <input>
+        <net-file value="../../mapa/backup/mapa.net.xml"/>
+        <route-files value="../rotas/superpico.rou.xml,../rotas/pedestres_superpico.rou.xml"/>
+        <additional-files value="../../mapa/backup/bairros.taz.xml,../../mapa/backup/bairros.add.xml,../../mapa/backup/semaforos_adaptativos.add.xml,../../mapa/backup/pontos_onibus.add.xml"/>
+    </input>
+    <time>
+        <begin value="25200"/>
+        <end value="28800"/>
+        <step-length value="0.2"/>
+    </time>
+    <processing>
+        <ignore-route-errors value="true"/>
+        <time-to-teleport value="90"/>
+        <lateral-resolution value="0.8"/>
+    </processing>
+    <output>
+        <tripinfo-output value="../outputs/superpico_radar_novo/rodada_01.xml"/>
+    </output>
+    <gui_only>
+        <gui-settings-file value="viewsettings.xml"/>
+    </gui_only>
+</configuration>

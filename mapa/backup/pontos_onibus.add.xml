@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<additionals><busStop id="-2826706089" lane="-278275406_0" startPos="0.00" endPos="15.00" friendlyPos="true">
+        <access lane="309828927#2_0" pos="19.61" length="102.55" friendlyPos="1" />
+        <access lane="309828927#3_0" pos="56.46" length="45.38" friendlyPos="1" />
+        <access lane="364444888#1_0" pos="66.71" length="91.29" friendlyPos="1" />
+        <access lane="364444898#0_0" pos="70.08" length="70.96" friendlyPos="1" />
+        <access lane="364444898#1_0" pos="2.22" length="101.17" friendlyPos="1" />
+    </busStop>
+    <busStop id="-7906891971" name="Ponto de Apoio - Aracaju" lane="-82691949_0" startPos="48.91" endPos="63.91" friendlyPos="true" />
+    <busStop id="10255573848" name="JJA04" lane="178165291#13_0" startPos="31.30" endPos="46.30" friendlyPos="true" />
+    <busStop id="1108961862" name="Shopping Jardins" lane="667590780#3_1" startPos="85.90" endPos="100.90" friendlyPos="true" />
+    <busStop id="1108962058" name="Shopping Jardins" lane="176257575#9_0" startPos="21.22" endPos="36.22" friendlyPos="true" />
+    <busStop id="11253704918" name="AF 14" lane="81100409#7_1" startPos="32.70" endPos="47.70" friendlyPos="true" />
+    <busStop id="1221672440" name="OA06" lane="81177742#17_0" startPos="72.24" endPos="87.24" friendlyPos="true" />
+    <busStop id="1484235683" name="TN34" lane="231771018#1_0" startPos="43.19" endPos="58.19" friendlyPos="true" />
+    <busStop id="2826706089" lane="278275406_0" startPos="12.55" endPos="27.55" friendlyPos="true">
+        <access lane="309828927#2_0" pos="19.61" length="102.55" friendlyPos="1" />
+        <access lane="309828927#3_0" pos="56.46" length="45.38" friendlyPos="1" />
+        <access lane="364444888#1_0" pos="66.71" length="91.29" friendlyPos="1" />
+        <access lane="364444898#0_0" pos="70.08" length="70.96" friendlyPos="1" />
+        <access lane="364444898#1_0" pos="2.22" length="101.17" friendlyPos="1" />
+    </busStop>
+    <busStop id="2837084095" name="Coopertalse" lane="603927366#2_0" startPos="13.05" endPos="28.05" friendlyPos="true" />
+    <busStop id="3044063212" name="TN07 Jabutiana" lane="749088707#14_0" startPos="52.53" endPos="67.53" friendlyPos="true" />
+    <busStop id="3098614151" name="BM 11" lane="1459304596#1_1" startPos="89.44" endPos="104.44" friendlyPos="true" />
+    <busStop id="3281347999" name="AF 12" lane="81100409#19_1" startPos="7.02" endPos="22.02" friendlyPos="true" />
+    <busStop id="4069425188" name="TN36" lane="231771018#3_0" startPos="0.00" endPos="15.00" friendlyPos="true" />
+    <busStop id="4356713054" name="MLM01 Jabutiana" lane="749088707#14_0" startPos="90.03" endPos="105.03" friendlyPos="true" />
+    <busStop id="7237844994" name="Embarque - Terminal Rodoviário de Aracaju" lane="278275407_0" startPos="50.76" endPos="65.76" friendlyPos="true">
+        <access lane="309828927#1_0" pos="36.05" length="99.19" friendlyPos="1" />
+        <access lane="309828927#2_0" pos="12.50" length="94.67" friendlyPos="1" />
+        <access lane="309828927#3_0" pos="0.00" length="96.13" friendlyPos="1" />
+        <access lane="364444898#0_0" pos="135.81" length="112.26" friendlyPos="1" />
+        <access lane="364444898#1_0" pos="2.22" length="99.48" friendlyPos="1" />
+    </busStop>
+    <busStop id="7288802181" name="GBarbosa Norte" lane="81177742#17_0" startPos="71.27" endPos="86.27" friendlyPos="true" />
+    <busStop id="7288802182" lane="170021873#1_0" startPos="85.95" endPos="100.95" friendlyPos="true" />
+    <busStop id="9219711717" name="ML01" lane="82546404#2_1" startPos="55.74" endPos="70.74" friendlyPos="true" />
+    <busStop id="9219711718" name="ML04" lane="82546390#8_1" startPos="25.45" endPos="40.45" friendlyPos="true" />
+    <busStop id="9219711721" lane="82546390#3_1" startPos="62.06" endPos="77.06" friendlyPos="true" />
+    <busStop id="9219711722" lane="82546404#7_1" startPos="61.30" endPos="76.30" friendlyPos="true" />
+    <busStop id="9251742924" lane="231955413#3_1" startPos="3.16" endPos="18.16" friendlyPos="true" />
+    <busStop id="962701387" name="Desembarque - Terminal Rodoviário de Aracaju" lane="82696038_0" startPos="73.05" endPos="88.05" friendlyPos="true">
+        <access lane="170170542_0" pos="55.00" length="73.15" friendlyPos="1" />
+        <access lane="309828927#1_0" pos="12.33" length="116.30" friendlyPos="1" />
+        <access lane="426003102#1_0" pos="25.65" length="99.61" friendlyPos="1" />
+        <access lane="426003103#0_0" pos="0.00" length="113.45" friendlyPos="1" />
+        <access lane="777760323_0" pos="19.77" length="91.84" friendlyPos="1" />
+    </busStop>
+</additionals>
